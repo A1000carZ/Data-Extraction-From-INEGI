@@ -1,0 +1,6 @@
+selenium>=3.141.0
+pandas>=1.4.4
+pymysql>=1.0.2
+numpy>=1.22.3
+requests>=2.27.1
+beautifulsoup4>=4.11.1
