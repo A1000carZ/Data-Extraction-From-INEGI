@@ -21,7 +21,8 @@ fr1 = frame[["nom_estab", "raz_social", "nombre_act", "per_ocu", 'tipo_vial', 'n
 # This take only 1000000 of rows
 ten = fr1.head(1000000)
 
-ten.to_csv('file_name.csv', index=False)
+
+#ten.to_csv('file_name.csv', index=False)
 # print(ten)
 
 # You can configure your custom database
@@ -35,6 +36,7 @@ connection = pymysql.connect(host=server, database=database, user=username, pass
 
 cursor = connection.cursor()
 
+# This insert data to a database
 for i, row in fr1.iterrows():
     data = (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11],)
     print(data)
