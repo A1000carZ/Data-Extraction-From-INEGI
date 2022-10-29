@@ -3,12 +3,12 @@ from processing_functions import data_frame_process
 import pymysql
 import numpy as np
 
-# You specify the date of data
-# from https://www.inegi.org.mx/app/descarga/ in - Actividad economica row
+# You can specify the date of data
+# from https://www.inegi.org.mx/app/descarga/ in "- Actividad economica" row
 urls = get_urls('05/2022')
 
-# You specify the date of data
-# from https://www.inegi.org.mx/app/descarga/ in - Actividad economica row
+# You can specify the date of data
+# from https://www.inegi.org.mx/app/descarga/ in "- Actividad economica" row
 files = extract_data("05/2022")
 
 frame = data_frame_process(files)
@@ -18,20 +18,22 @@ frame['cod_postal'] = frame['cod_postal'].replace(np.nan, 0, regex=True)
 # This convert double to int in postal code field
 frame['cod_postal'] = frame['cod_postal'].astype(int)
 
+# This fix some empty field is the .csv files
 frame = frame.replace(np.nan, '', regex=True)
 
+# Custom fields to extract
 fr1 = frame[["nom_estab", "raz_social", "nombre_act", "per_ocu", 'tipo_vial', 'nom_vial', 'tipo_asent', 'nomb_asent',
              'cod_postal', 'entidad', 'municipio',
              'localidad']]
 
 # This take only 1000000 of rows
-ten = fr1.head(1000000)
+data = fr1.head(1000000)
 
 # ten.to_csv('file_name.csv', index=False)
 # print(ten)
 
 # You can configure your custom database
-# data sample
+# Config sample
 server = 'hackaton.czla5cmf9lk9.us-east-1.rds.amazonaws.com'
 database = 'hackaton'
 username = 'admin'
@@ -56,3 +58,5 @@ cursor = connection.cursor()
 
 cursor.close()
 # print(urls)
+
+print(data)
