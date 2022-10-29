@@ -3,8 +3,12 @@ from processing_functions import data_frame_process
 import pymysql
 import numpy as np
 
+# You specify the date of data
+# from https://www.inegi.org.mx/app/descarga/ in - Actividad economica row
 urls = get_urls('05/2022')
 
+# You specify the date of data
+# from https://www.inegi.org.mx/app/descarga/ in - Actividad economica row
 files = extract_data("05/2022")
 
 frame = data_frame_process(files)
