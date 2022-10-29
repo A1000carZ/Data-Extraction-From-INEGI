@@ -1,6 +1,9 @@
 # Default ignored files
 __pycache__/
 conjunto_de_datos/
+*.pyo
+*.csv
+*.pyc
 /shelf/
 /workspace.xml
 # Editor-based HTTP Client requests
@@ -8,4 +11,3 @@ conjunto_de_datos/
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-
