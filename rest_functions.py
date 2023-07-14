@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import requests
 import io
@@ -46,7 +47,7 @@ def get_urls(date):
 def get_files(urls):
     list_csv = []
     try:
-        print("Se encontraron", len(urls), "archivos")
+        print("Founded", len(urls), "files")
         for i, url in enumerate(urls, start=0):
             file_zip = requests.get(url)
             zip_file = zipfile.ZipFile(io.BytesIO(file_zip.content))
@@ -54,10 +55,11 @@ def get_files(urls):
             for member in zip_file.namelist():
                 if member.startswith('conjunto') and member.endswith('csv'):
                     percentage = (i * 100) / len(urls)
+                    rounded_percentage = round(percentage,2)
                     file = zip_file.extract(member)
                     list_csv.append(file)
-                    print("Descargando...", percentage, "%")
-        print("Descarga completada!")
+                    print("Downloading...", rounded_percentage, "%")
+        print("Downloaded!")
     except Exception:
 
         print('Error getting files :(')
@@ -72,7 +74,7 @@ def extract_data(date):
 
     exist_directory = os.path.exists(directory)
 
-    print("Buscando archivos...")
+    print("Searching files...")
 
     if exist_directory:
         for dirpath, _, filenames in os.walk(directory):
@@ -80,7 +82,7 @@ def extract_data(date):
                 files.append(os.path.abspath(os.path.join(dirpath, f)))
     else:
         urls = get_urls(date=date)
-        print('Generando descarga...')
+        print('Generating download...')
         files = get_files(urls)
 
     return files

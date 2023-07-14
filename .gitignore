@@ -5,6 +5,7 @@ conjunto_de_datos/
 *.pyo
 *.csv
 *.pyc
+/venv/
 /shelf/
 /workspace.xml
 # Editor-based HTTP Client requests

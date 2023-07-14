@@ -1,6 +1,7 @@
-selenium>=3.141.0
-pandas>=1.4.4
-pymysql>=1.0.2
-numpy>=1.22.3
-requests>=2.27.1
-beautifulsoup4>=4.11.1
+selenium>=4.10.0
+pandas>=2.0.3
+pymysql>=1.1.0
+numpy>=1.25.1
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+webdriver-manager>=3.8.6
