@@ -42,7 +42,12 @@ Run the script
 
 ## Additional information
 
-All files downloaded will be saved in a folder called `conjunto_de_datos` in .csv format ready to use with pandas. 
+All files downloaded will be saved in a folder called `conjunto_de_datos` in .csv format ready to use with pandas.
+
+
+## Contributing
+
+Contributions are always welcome!
 
 And that's it!
 ## 🚀 About Me
