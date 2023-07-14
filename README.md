@@ -2,6 +2,8 @@
 # Data Extraction from INEGI
 
 This Python script allows you to retrieve data on numerous SMEs in Mexico from the INEGI database. By using this script, you can access a wealth of information about SMEs in Mexico.
+
+## More of 4 Million rows of data!
 ## Run Locally
 
 Clone the project
